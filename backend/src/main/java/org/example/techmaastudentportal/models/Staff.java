@@ -14,10 +14,12 @@ public class Staff extends User{
     @Enumerated(EnumType.STRING)
     private Department department;
     @Enumerated(EnumType.STRING)
+    @Column(name = "staff_role", length = 30)
     private StaffRole staffRole;
     @ManyToOne
     private Course course;
     private String address;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private Integer age;
 }

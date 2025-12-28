@@ -46,6 +46,13 @@ public class StaffService {
         staff.setName(staffDTO.getName());
         staff.setPassword(passwordEncoder.encode(staffDTO.getPassword()));
         staff.setRole(UserRole.STAFF);
+        Course course = courseRepository.findByIdAndIsDeletedFalse(staffDTO.getCourseId()).orElseThrow(()-> new EntityNotFoundException("Given course Id does not exist."));
+        staff.setCourse(course);
+        staff.setGender(staffDTO.getGender());
+        staff.setAge(staffDTO.getAge());
+        staff.setStaffRole(staffDTO.getStaffRole());
+        staff.setAddress(staffDTO.getAddress());
+        staff.setDepartment(staffDTO.getDepartment());
         staffRepository.saveAndFlush(staff);
         String staffId= String.format("STAFF%06d", staff.getId());
         staff.setStaffId(staffId);

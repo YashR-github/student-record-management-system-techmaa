@@ -14,4 +14,5 @@ public class StaffSignupResponseDTO {
     private UserRole role;
     private Department department;
     private StaffRole staffRole;
+    private String courseTitle;
 }

@@ -39,6 +39,7 @@ public class ObjectDTOMapper {
         responseDTO.setPhone(staff.getPhone());
         responseDTO.setName(staff.getName());
         responseDTO.setRole(staff.getRole());
+        responseDTO.setCourseTitle(staff.getCourse().getTitle());
         responseDTO.setStaffId(staff.getStaffId());
         return responseDTO;
     }
@@ -134,6 +135,7 @@ public class ObjectDTOMapper {
         responseDTO.setGender(staff.getGender());
         responseDTO.setPassword(staff.getPassword());
         responseDTO.setCourseTitle(staff.getCourse().getTitle());
+        responseDTO.setCourseId(staff.getCourse().getId());
         return responseDTO;
     }
 

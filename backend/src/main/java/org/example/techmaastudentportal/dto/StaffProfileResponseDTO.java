@@ -16,6 +16,7 @@ public class StaffProfileResponseDTO {
     private Gender gender;
     private Integer age;
     private String courseTitle;
+    private Long courseId;
     private Department department;
     private StaffRole staffRole;
     private String password;

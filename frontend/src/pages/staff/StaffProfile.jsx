@@ -10,7 +10,7 @@ import DeleteConfirmationModal from '../../components/modals/DeleteConfirmationM
 
 // Hardcoded departments/roles/titles for dropdowns
 const DEPARTMENTS = ['SCIENCE', 'COMMERCE', 'ARTS', 'ENGINEERING']
-const ROLES = ['PROFESSOR', 'ASSISTANT_PROFESSOR', 'LAB_ASSISTANT', 'ADMIN']
+const ROLES = ['TEACHING', 'NON_TEACHING', 'ADMINISTRATIVE']
 
 export default function StaffProfile() {
     const { logout } = useAuth()
@@ -305,7 +305,7 @@ export default function StaffProfile() {
                                 <button
                                     type="submit"
                                     disabled={saving}
-                                    className={`px - 6 py - 2 rounded - md text - white font - medium shadow - sm active: scale - 95 transition - all duration - 200 ${saving ? 'bg-indigo-400' : 'bg-indigo-600 hover:bg-indigo-700'} `}
+                                    className={`px-6 py-2 rounded-md text-white font-medium shadow-sm active:scale-95 transition-all duration-200 ${saving ? 'bg-indigo-400' : 'bg-indigo-600 hover:bg-indigo-700'}`}
                                 >
                                     {saving ? 'Saving...' : 'Save Changes'}
                                 </button>
