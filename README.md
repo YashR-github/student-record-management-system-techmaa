@@ -21,6 +21,61 @@ Unlike standard CRUD applications, this portal incorporates **Role-Based Access 
 * **Responsive UI:** A modern dashboard built with **Tailwind CSS** and real-time notifications.
 
 ---
+## 🖼️ Application Screenshots
+
+### 🔐 Authentication Portal (Password & OTP Login)
+**Authentication Portal (Password & OTP Login)**  
+Secure entry point supporting credential-based login and Redis-backed OTP authentication for Admin, Staff, and Students.
+
+<img src="screenshots/login.png" width="900"/>
+
+---
+
+### 🔑 OTP Verification Flow
+
+**OTP Verification Flow**  
+Email-based one-time password verification with resend support and time-bound validation for enhanced security.
+
+<img src="screenshots/otp-verification.png" width="900"/>
+
+---
+
+### 🛠️ Admin Dashboard – Student Record Management
+
+**Admin Dashboard – Student Record Management** 
+
+Centralized administrative interface featuring advanced filtering, sorting, role-based actions, and Excel export capabilities.
+
+<img src="screenshots/admin-dashboard.png" width="900"/>
+
+---
+### 🔍 Filtered Student Results
+
+**Applied Student Filters** 
+
+Displays the filtered results in student records table after applying multiple filter criterias, reflecting the narrowed dataset based on the selected parameters.
+
+<img src="screenshots/admin-student-filter.png" width="900"/>
+
+---
+
+### 👨‍🏫 Staff Profile
+
+**Staff Profile Management**  
+
+Role-specific profile view enabling controlled updates to personal and professional information under RBAC constraints.
+
+<img src="screenshots/staff-profile.png" width="850"/>
+
+---
+
+### ⚠️ Account Safety
+**Account Deletion Confirmation**  
+Explicit confirmation flow for irreversible actions, ensuring user intent validation and preventing accidental data loss.
+
+<img src="screenshots/delete-account.png" width="700"/>
+
+---
 
 ## 2.🛠 Tech Stack
 
