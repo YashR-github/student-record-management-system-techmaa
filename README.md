@@ -11,7 +11,7 @@ Unlike standard CRUD applications, this portal incorporates **Role-Based Access 
 
 ---
 
-## 1.🚀 Key Features
+## 1. 🚀 Key Features
 
 * **Multi-Role Authentication:** Dedicated access levels and unique UI views for Admin, Staff, and Students.
 * **Secure Auth Flow:** Implements JWT tokens stored in HttpOnly cookies and MFA via email-based OTPs.
@@ -21,9 +21,9 @@ Unlike standard CRUD applications, this portal incorporates **Role-Based Access 
 * **Responsive UI:** A modern dashboard built with **Tailwind CSS** and real-time notifications.
 
 ---
-## 🖼️ Application Screenshots
+## 2. 🖼️ Application Screenshots
 
-### 🔐 Authentication Portal (Password & OTP Login)
+### 2.1 🔐 Authentication Portal (Password & OTP Login)
 **Authentication Portal (Password & OTP Login)**  
 Secure entry point supporting credential-based login and Redis-backed OTP authentication for Admin, Staff, and Students.
 
@@ -31,7 +31,7 @@ Secure entry point supporting credential-based login and Redis-backed OTP authen
 
 ---
 
-### 🔑 OTP Verification Flow
+### 2.2 🔑 OTP Verification Flow
 
 **OTP Verification Flow**  
 Email-based one-time password verification with resend support and time-bound validation for enhanced security.
@@ -40,7 +40,7 @@ Email-based one-time password verification with resend support and time-bound va
 
 ---
 
-### 🛠️ Admin Dashboard – Student Record Management
+### 2.3 🛠️ Admin Dashboard – Student Record Management
 
 **Admin Dashboard – Student Record Management** 
 
@@ -49,7 +49,7 @@ Centralized administrative interface featuring advanced filtering, sorting, role
 <img src="screenshots/admin-dashboard.png" width="900"/>
 
 ---
-### 🔍 Filtered Student Results
+### 2.4 🔍 Filtered Student Results
 
 **Applied Student Filters** 
 
@@ -59,7 +59,7 @@ Displays the filtered results in student records table after applying multiple f
 
 ---
 
-### 👨‍🏫 Staff Profile
+### 2.5 👨‍🏫 Staff Profile
 
 **Staff Profile Management**  
 
@@ -69,7 +69,7 @@ Role-specific profile view enabling controlled updates to personal and professio
 
 ---
 
-### ⚠️ Account Safety
+### 2.6 ⚠️ Account Safety
 **Account Deletion Confirmation**  
 Explicit confirmation flow for irreversible actions, ensuring user intent validation and preventing accidental data loss.
 
@@ -77,7 +77,7 @@ Explicit confirmation flow for irreversible actions, ensuring user intent valida
 
 ---
 
-## 2.🛠 Tech Stack
+## 3.🛠 Tech Stack
 
 ### Software Architecture
 
@@ -92,7 +92,7 @@ Explicit confirmation flow for irreversible actions, ensuring user intent valida
 
 ---
 
-## 3.📐 Architecture Overview
+## 4.📐 Architecture Overview
 
 The application follows a clean, decoupled architecture:
 
@@ -106,15 +106,15 @@ The application follows a clean, decoupled architecture:
 
 ---
 
-## 4.⚙️ Installation & Setup
+## 5. ⚙️ Installation & Setup
 
-### Prerequisites
+### 5.1 📋 Prerequisites
 * **Java JDK 17+**
 * **Node.js v18+**
 * **MySQL Server** (Running on 3306)
 * **Redis Server** (Running on 6379)
 
-### 5. Backend Configuration
+### 5.2 🛠️ Backend Configuration
 Navigate to the backend folder and configure your `src/main/resources/application.properties`:
 
 ```properties
@@ -134,7 +134,7 @@ spring.mail.port=587
 spring.mail.username=${EMAIL_SENDER_USERNAME}
 spring.mail.password=${GMAIL_APP_PASSWORD}
 ```
-### Run Backend Server
+### 5.3 ▶️ Run Backend Server
 
 Run the following commands in the root of your backend directory:
 
@@ -142,7 +142,66 @@ Run the following commands in the root of your backend directory:
 mvn clean install
 mvn spring-boot:run
 ```
-## 6. Frontend Configuration
+
+---
+
+### 5.4 🧱 Launch Redis with Docker Desktop *(Required for OTP Login)*
+
+### 5.4.1 📋 Prerequisites
+
+* **Docker Desktop:** Docker Desktop should be Installed and running on your system.
+* **Terminal:** Access to a shell such as PowerShell, Command Prompt, or Bash.
+
+### 5.4.2 📦 Pull the Redis Image
+
+Download the latest official Redis image from Docker Hub to your local machine:
+
+```bash
+docker pull redis:latest
+
+```
+
+### 5.4.3 ⚡ Launch the Redis Container
+
+Run the following command to start a named container in **detached mode**, mapping the host port to the container port:
+
+```bash
+docker run --name redis-server -p 6379:6379 -d redis
+
+```
+
+**Flag Breakdown:**
+
+* **--name redis-server**: Assigns a custom name to the container for management.
+* **-p 6379:6379**: Maps host port **6379** to container port **6379**.
+* **-d**: Runs the container in the background (detached).
+
+### 5.4.4 🔍 Verify the Installation
+
+Check that the container is running and confirm connectivity by sending a **ping** command to the Redis CLI:
+
+```bash
+docker ps
+docker exec -it redis-server redis-cli ping
+
+```
+
+*Expected Output:* `PONG`
+
+
+### 5.4.5 🧰 Management Commands for Redis
+
+| Action | Command |
+| --- | --- |
+| **Stop Container** | `docker stop redis-server` |
+| **Start Container** | `docker start redis-server` |
+| **View Logs** | `docker logs -f redis-server` |
+| **Access CLI** | `docker exec -it redis-server redis-cli` |
+| **Remove Container** | `docker rm -f redis-server` |
+
+---
+
+## 5.5 🖥️ Frontend Configuration
 
 1. Navigate to the frontend folder.
 2. Install dependencies:
@@ -153,7 +212,9 @@ mvn spring-boot:run
    ```bash
    npm run dev
    ```
-## 7.📑 API Documentation
+   ---
+   
+## 6.📑 API Documentation
 
 The system exposes several key REST endpoints:
 
@@ -167,7 +228,9 @@ The system exposes several key REST endpoints:
 | GET    | `/student/profile`                    | Student | Fetch authenticated student profile      |
 | PATCH  | `/staff/profile/update`               | Staff   | Update staff member information          |
 
-## 8. Usage Guide
+---
+
+## 7. Usage Guide
 1. **Administrative Setup**: Register an admin account via /register/admin.
 
 2. **Student Onboarding**: Admins can register students from the dashboard or students can self-register.
@@ -176,7 +239,9 @@ The system exposes several key REST endpoints:
 
 4. **Data Export**: As an Admin, use the filter bar to isolate records and click "Export to Excel" to download the .xlsx report.
 
-## 9.🤝 Contributing
+---
+
+## 8.🤝 Contributing
 1. **Fork** the Project.
 
 2. **Create your Feature Branch**:
