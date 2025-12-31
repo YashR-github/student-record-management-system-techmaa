@@ -159,7 +159,7 @@ The system exposes several key REST endpoints:
 
 | Method | Endpoint                              | Access  | Description                              |
 | :----: | ------------------------------------- | :-----: | ---------------------------------------- |
-| POST   | `/auth/login-user`                    | Public  | Standard password-based login            |
+| POST   | `/auth/login/password`                    | Public  | Standard password-based login            |
 | POST   | `/auth/login/generate-otp`            | Public  | Initiates OTP generation for email login |
 | POST   | `/admin/register-student`             | Admin   | Registers a new student record           |
 | GET    | `/admin/students/filter`              | Admin   | Search / filter students with sorting    |
