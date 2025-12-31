@@ -3,7 +3,7 @@ import api from './api.js'
 
 // Password login (email OR phone)
 export async function loginWithPassword(payload) {
-    return api.request('/auth/login-user', {
+    return api.request('/auth/login/password', {
         method: 'POST',
         body: JSON.stringify(payload)
     })
@@ -19,7 +19,7 @@ export async function generateOTP(email) {
 
 // Validate OTP
 export async function validateOTP(payload) {
-    return api.request('/auth/login/validate-otp', {
+    return api.request('/auth/login/verify-otp', {
         method: 'POST',
         body: JSON.stringify(payload)
     })

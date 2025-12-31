@@ -29,7 +29,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("/login-user")
+    @PostMapping("/login/password")
     public ResponseEntity<UserLoginResponseDTO> loginUser(@Valid @RequestBody UserLoginReqDTO loginUser){
         ValidationUtil.checkContactCredential(loginUser);
         LoginResult result = authService.login(loginUser);
@@ -48,7 +48,7 @@ public class AuthController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/login/validate-otp")
+    @PostMapping("/login/verify-otp")
     public ResponseEntity<UserLoginResponseDTO> validateLoginEmailOTP(@Valid @RequestBody UserEmailOTPLoginValidationDTO reqDTO){
         LoginResult result= authService.validateLoginOtp(reqDTO);
         ResponseCookie cookie = jwtUtil.generateTokenCookie(result.getToken());

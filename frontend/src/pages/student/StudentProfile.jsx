@@ -131,6 +131,15 @@ export default function StudentProfile() {
                         </h1>
                         <p className="text-slate-300 text-sm mt-1">Student Account</p>
                     </div>
+                    <button
+                        onClick={() => navigate('/student/dashboard')}
+                        className="text-white hover:text-gray-300 transition-colors p-2 rounded-full hover:bg-white/10 active:scale-95"
+                        title="Back to Dashboard"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
                 <div className="p-8">
